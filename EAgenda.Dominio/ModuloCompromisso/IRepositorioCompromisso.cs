@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EAgenda.Dominio.Compartilhado;
 
-namespace EAgenda.Dominio.ModuloCompromisso
+namespace EAgenda.Dominio.ModuloCompromisso;
+
+internal interface IRepositorioCompromisso : IRepositorio<Compromisso>
 {
-    internal interface IRepositorioCompromisso
-    {
-    }
+
 }

@@ -1,6 +1,5 @@
-﻿namespace EAgenda.Dominio.ModuloCategoria;
+﻿using EAgenda.Dominio.Compartilhado;
 
-public interface IRepositorioCategoria
-{
+namespace EAgenda.Dominio.ModuloCategoria;
 
-}
+public interface IRepositorioCategoria : IRepositorio<Categoria>;
