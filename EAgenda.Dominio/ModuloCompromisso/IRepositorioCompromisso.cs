@@ -2,7 +2,7 @@
 
 namespace EAgenda.Dominio.ModuloCompromisso;
 
-internal interface IRepositorioCompromisso : IRepositorio<Compromisso>
+public interface IRepositorioCompromisso : IRepositorio<Compromisso>
 {
 
 }
