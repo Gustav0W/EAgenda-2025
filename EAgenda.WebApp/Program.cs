@@ -25,11 +25,11 @@ namespace EAgenda.WebApp
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddScoped(_ => new ContextoDados(true));
-            builder.Services.AddScoped<IRepositorioContato, RepositorioContatoEmOrm>();
-            builder.Services.AddScoped<IRepositorioCompromisso, RepositorioCompromissoEmOrm>();
-            builder.Services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmOrm>();
-            builder.Services.AddScoped<IRepositorioDespesa, RepositorioDespesaEmOrm>();
-            builder.Services.AddScoped<IRepositorioTarefa, RepositorioTarefaEmOrm>();
+            //builder.Services.AddScoped<IRepositorioContato, RepositorioContatoEmOrm>();
+            //builder.Services.AddScoped<IRepositorioCompromisso, RepositorioCompromissoEmOrm>();
+            //builder.Services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmOrm>();
+            //builder.Services.AddScoped<IRepositorioDespesa, RepositorioDespesaEmOrm>();
+            //builder.Services.AddScoped<IRepositorioTarefa, RepositorioTarefaEmOrm>();
 
             builder.Services.AddEntityFrameworkConfig(builder.Configuration);
             builder.Services.AddSerilogConfig(builder.Logging);

@@ -4,17 +4,18 @@ using EAgenda.WebApp.Models;
 using EAgenda.WebApp.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using EAgenda.Infraestrutura.Orm.Compartilhado;
 
 namespace EAgenda.WebApp.Controllers;
 
 [Route("compromissos")]
 public class CompromissoController : Controller
 {
-    private readonly eAgendaDbContext contexto;
+    private readonly EAgendaDbContext contexto;
     private readonly IRepositorioCompromisso repositorioCompromisso;
     private readonly IRepositorioContato repositorioContato;
 
-    public CompromissoController(eAgendaDbContext contexto, IRepositorioCompromisso repositorioCompromisso, IRepositorioContato repositorioContato)
+    public CompromissoController(EAgendaDbContext contexto, IRepositorioCompromisso repositorioCompromisso, IRepositorioContato repositorioContato)
     {
         this.contexto = contexto;
         this.repositorioCompromisso = repositorioCompromisso;

@@ -3,17 +3,18 @@ using EAgenda.Dominio.ModuloCompromisso;
 using EAgenda.WebApp.Models;
 using EAgenda.WebApp.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using EAgenda.Infraestrutura.Orm.Compartilhado;
 
 namespace EAgenda.WebApp.Controllers;
 
 [Route("contatos")]
 public class ContatoController : Controller
 {
-    private readonly eAgendaDbContext contexto;
+    private readonly EAgendaDbContext contexto;
     private readonly IRepositorioContato repositorioContato;
     private readonly IRepositorioCompromisso repositorioCompromisso;
 
-    public ContatoController(eAgendaDbContext contexto, IRepositorioContato repositorioContato)
+    public ContatoController(EAgendaDbContext contexto, IRepositorioContato repositorioContato)
     {
         this.contexto = contexto;
         this.repositorioContato = repositorioContato;

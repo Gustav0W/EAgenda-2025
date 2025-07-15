@@ -1,6 +1,7 @@
 ﻿using EAgenda.Dominio.ModuloTarefa;
 using EAgenda.WebApp.Models;
 using EAgenda.WebApp.Extensions;
+using EAgenda.Infraestrutura.Orm.Compartilhado;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EAgenda.WebApp.Controllers;
@@ -8,10 +9,10 @@ namespace EAgenda.WebApp.Controllers;
 [Route("tarefas")]
 public class TarefaController : Controller
 {
-    private readonly eAgendaDbContext contexto;
+    private readonly EAgendaDbContext contexto;
     private readonly IRepositorioTarefa repositorioTarefa;
 
-    public TarefaController(eAgendaDbContext contexto, IRepositorioTarefa repositorioTarefa)
+    public TarefaController(EAgendaDbContext contexto, IRepositorioTarefa repositorioTarefa)
     {
         this.contexto = contexto;
         this.repositorioTarefa = repositorioTarefa;

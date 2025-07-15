@@ -4,18 +4,19 @@ using EAgenda.WebApp.Models;
 using EAgenda.WebApp.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using EAgenda.Infraestrutura.Orm.Compartilhado;
 
 namespace EAgenda.WebApp.Controllers;
 
 [Route("despesas")]
 public class DespesaController : Controller
 {
-    private readonly eAgendaDbContext contexto;
+    private readonly EAgendaDbContext contexto;
     private readonly IRepositorioDespesa repositorioDespesa;
     private readonly IRepositorioCategoria repositorioCategoria;
 
     public DespesaController(
-        eAgendaDbContext contexto,
+        EAgendaDbContext contexto,
         IRepositorioDespesa repositorioDespesa,
         IRepositorioCategoria repositorioCategoria
     )

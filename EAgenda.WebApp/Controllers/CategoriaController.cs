@@ -2,16 +2,17 @@
 using EAgenda.WebApp.Extensions;
 using EAgenda.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using EAgenda.Infraestrutura.Orm.Compartilhado;
 
 namespace EAgenda.WebApp.Controllers;
 
 [Route("categorias")]
 public class CategoriaController : Controller
 {
-    private readonly eAgendaDbContext contexto;
+    private readonly EAgendaDbContext contexto;
     private readonly IRepositorioCategoria repositorioCategoria;
 
-    public CategoriaController(eAgendaDbContext contexto, IRepositorioCategoria repositorioCategoria)
+    public CategoriaController(EAgendaDbContext contexto, IRepositorioCategoria repositorioCategoria)
     {
         this.contexto = contexto;
         this.repositorioCategoria = repositorioCategoria;
