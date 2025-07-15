@@ -1,5 +1,95 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿﻿@using EAgenda.WebApp.Models;
+@model EditarCompromissoViewModel;
+
 @{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Edição de Compromisso";
+}
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+
+                    <h2 class="card-title text-center mb-4">COMPROMISSOS</h2>
+
+                    <form asp-action="Editar" asp-route-id="@Model.Id">
+                        <h3>Formulário de Edição</h3>
+
+                        @if (ViewData.ModelState["CadastroUnico"]?.Errors.Count > 0)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show my-3" action="alert">
+                                @ViewData.ModelState["CadastroUnico"]!.Errors.First().ErrorMessage
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Assunto" class="form-label">Assunto *</label>
+                                    <input asp-for="Assunto" class="form-control" />
+                                    <span asp-validation-for="Assunto" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="DataDeOcorrencia" class="form-label">Data De Ocorrência *</label>
+                                    <input asp-for="DataDeOcorrencia" type="date" class="form-control" />
+                                    <span asp-validation-for="DataDeOcorrencia" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="HoraDeInicio" class="form-label">Hora De Início *</label>
+                            <input asp-for="HoraDeInicio" type="time" class="form-control" />
+                            <span asp-validation-for="HoraDeInicio" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="HoraDeTermino" class="form-label">Hora De Término *</label>
+                            <input asp-for="HoraDeTermino" type="time" class="form-control" />
+                            <span asp-validation-for="HoraDeTermino" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="TipoCompromisso" class="form-label">Tipo Compromisso *</label>
+                            <input asp-for="TipoCompromisso" class="form-control" />
+                            <span asp-validation-for="TipoCompromisso" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Local" class="form-label">Local</label>
+                            <input asp-for="Local" class="form-control" />
+                            <span asp-validation-for="Local" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Link" class="form-label">Link</label>
+                            <input asp-for="Link" class="form-control" />
+                            <span asp-validation-for="Link" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Contato" class="form-label">Contato:</label>
+                            <select class="form-select" asp-for="Contato" asp-items="Model.ContatosDisponiveis" aria-label="Selecionar contato">
+                            </select>
+                        </div>
+
+                        <div class="mt-4 d-flex justify-content-end gap-2">
+                            <a href="/compromissos" class="btn btn-outline-secondary">Visualizar</a>
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
 }

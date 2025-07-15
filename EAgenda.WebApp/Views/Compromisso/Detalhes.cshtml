@@ -1,5 +1,61 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using EAgenda.WebApp.Models;
+@model DetalhesCompromissoViewModel
+
 @{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Detalhes de Compromissos";
 }
+
+<hr />
+<div class="row justify-content-center my-5">
+    <div class="col-md-8">
+
+        <div class="card rounded-4 border-0">
+            <div class="card-body p-md-5">
+                <h3>Detalhes</h3>
+
+                <div class="form-group d-grid gap-2 mt-3">
+                    <label for="Id" class="control-label fs-5">Id:</label>
+                    <input name="Id" class="form-control" value="@Model.Id" readonly disabled />
+                </div>
+                <div class="form-group d-grid gap-2 mt-3">
+                    <label for="Assunto" class="control-label fs-5">Assunto:</label>
+                    <input name="Assunto" class="form-control" value="@Model.Assunto" readonly disabled />
+                </div>
+                <div class="form-group d-grid gap-2 mt-3">
+                    <label for="DataDeOcorrencia" class="control-label fs-5">Data De Ocorrência:</label>
+                    <input name="DataDeOcorrencia" class="form-control" value="@Model.DataDeOcorrencia" readonly disabled />
+                </div>
+                <div class="form-group d-grid gap-2 mt-3">
+                    <label for="HoraDeInicio" class="control-label fs-5">Hora De Início:</label>
+                    <input name="HoraDeInicio" class="form-control" value="@Model.HoraDeInicio" readonly disabled />
+                </div>
+                <div class="form-group d-grid gap-2 mt-3">
+                    <label for="HoraDeTermino" class="control-label fs-5">Hora De Término:</label>
+                    <input name="HoraDeTermino" class="form-control" value="@Model.HoraDeTermino" readonly disabled />
+                </div>
+                <div class="form-group d-grid gap-2 mt-3">
+                    <label for="TipoCompromisso" class="control-label fs-5">Tipo Compromisso:</label>
+                    <input name="TipoCompromisso" class="form-control" value="@Model.TipoCompromisso" readonly disabled />
+                </div>
+                <div class="form-group d-grid gap-2 mt-3">
+                    <label for="Local" class="control-label fs-5">Local:</label>
+                    <input name="Local" class="form-control" value="@Model.Local" readonly disabled />
+                </div>
+                <div class="form-group d-grid gap-2 mt-3">
+                    <label for="Link" class="control-label fs-5">Link:</label>
+                    <input name="Link" class="form-control" value="@Model.Link" readonly disabled />
+                </div>
+                <div class="form-group d-grid gap-2 mt-3">
+                    <label for="Contato" class="control-label fs-5">Contato:</label>
+                    <input name="Contato" class="form-control" value="@Model.NomeContato" readonly disabled />
+                </div>
+                <div class="form-group d-flex align-items-center justify-content-end gap-3 mt-5">
+                    <a href="/compromissos">Voltar para a listagem</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
