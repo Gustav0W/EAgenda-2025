@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EAgenda.Dominio.ModuloTarefa;
 
-namespace EAgenda.Dominio.ModuloTarefa
+public enum PrioridadeTarefa
 {
-    internal class PrioridadeTarefa
-    {
-    }
+    Baixa,
+    Normal, 
+    Alta
 }
