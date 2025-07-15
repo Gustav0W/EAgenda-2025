@@ -1,8 +1,32 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿﻿@{
+Layout = "_Layout";
+ViewBag.Titulo = "Página Inicial";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<hr />
+<div class="d-flex flex-wrap gap-2 gap-lg-5">
+	<div class="col order-1 order-lg-0 py-lg-5">
+		<h2 class="text-primary fs-1 fw-bold">Seja bem-vindo/a!</h2>
+
+		<p class="fs-4 mt-3">
+			Nossa aplicação oferece a melhor experiência de gestão pessoal de tempo.
+		</p>
+
+		<p class="fs-4 mt-3">
+			Você pode marcar compromissos com seus contatos, organizar suas tarefas, categorizar suas despesas e muito mais!
+		</p>
+
+		<p class="fs-4 mt-4 text-secondary-emphasis">Clique em uma das opções abaixo para prosseguir:</p>
+
+		<div class="d-grid d-lg-flex flex-wrap gap-2">
+			<a href="/contatos" class="btn btn-outline-primary fw-semibold px-5 rounded-3">Contatos</a>
+			<a href="/compromissos" class="btn btn-outline-primary fw-semibold px-5 rounded-3">Compromissos</a>
+			<a href="/categorias" class="btn btn-outline-primary fw-semibold px-5 rounded-3">Categorias</a>
+			<a href="/despesas" class="btn btn-outline-primary fw-semibold px-5 rounded-3">Despesas</a>
+			<a href="/tarefas" class="btn btn-outline-primary fw-semibold px-5 rounded-3">Tarefas</a>
+		</div>
+	</div>
+	<div class="col-lg-4 order-0 order-lg-1">
+		<img src="~/images/undraw_calendar_8r6s.svg" alt="Mulher com calendário" class="img-fluid" />
+	</div>
 </div>
