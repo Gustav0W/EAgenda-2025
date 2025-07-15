@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EAgenda.Dominio.ModuloCompromisso;
+using EAgenda.Dominio.ModuloContato;
+using EAgenda.Infraestrutura.Compartilhado;
 
-namespace EAgenda.Infraestrutura.ModuloCompromisso
+namespace EAgenda.Infraestrutura.ModuloCompromisso;
+
+public class RepositorioCompromissoEmArquivo : RepositorioBaseEmArquivo<Compromisso>, IRepositorioCompromisso
 {
-    internal class RepositorioCompromissoEmArquivo
+    public RepositorioCompromissoEmArquivo(ContextoDados contexto) : base(contexto)
     {
     }
+    protected override List<Compromisso> ObterRegistros()
+    {
+        return contexto.Compromissos;
+    }
+
 }

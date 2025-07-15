@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EAgenda.Dominio.ModuloContato;
+using EAgenda.Dominio.ModuloDespesa;
+using EAgenda.Infraestrutura.Compartilhado;
 
-namespace EAgenda.Infraestrutura.ModuloDespesa
+namespace EAgenda.Infraestrutura.ModuloDespesa;
+
+public class RepositorioDespesaEmArquivo : RepositorioBaseEmArquivo<Despesa>, IRepositorioDespesa
 {
-    internal class RepositorioDespesaEmArquivo
+    public RepositorioDespesaEmArquivo(ContextoDados contextoDados) : base(contextoDados)
     {
     }
+    protected override List<Despesa> ObterRegistros()
+    {
+        return contexto.Despesas;
+    }
+
 }

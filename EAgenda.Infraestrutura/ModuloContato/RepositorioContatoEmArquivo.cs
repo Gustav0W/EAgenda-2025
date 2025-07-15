@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EAgenda.Dominio.ModuloContato;
+using EAgenda.Infraestrutura.Compartilhado;
 
-namespace EAgenda.Infraestrutura.ModuloContato
+namespace EAgenda.Infraestrutura.ModuloContato;
+
+public class RepositorioContatoEmArquivo : RepositorioBaseEmArquivo<Contato>, IRepositorioContato
 {
-    internal class RepositorioContatoEmArquivo
+    public RepositorioContatoEmArquivo(ContextoDados contextoDados) : base(contextoDados)
     {
+    }
+    protected override List<Contato> ObterRegistros()
+    {
+        return contexto.Contatos;
     }
 }
