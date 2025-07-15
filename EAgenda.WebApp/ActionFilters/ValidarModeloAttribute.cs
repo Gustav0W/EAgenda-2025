@@ -1,6 +1,22 @@
-﻿namespace EAgenda.WebApp.ActionFilters
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+
+namespace EAgenda.WebApp.ActionFilters;
+public class ValidarModeloAttribute : ActionFilterAttribute
 {
-    public class ValidarModeloAttribute
+    public override void OnActionExecuting(ActionExecutingContext context)
     {
+        var modelState = context.ModelState;
+
+        if (!modelState.IsValid)
+        {
+            var controller = (Controller)context.Controller;
+
+            var viewModel = context.ActionArguments
+                .Values
+                .FirstOrDefault(x => x.GetType().Name.EndsWith("ViewModel"));
+
+            context.Result = controller.View(viewModel);
+        }
     }
 }
