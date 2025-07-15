@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EAgenda.Dominio.Compartilhado;
 
-namespace EAgenda.Dominio.ModuloDespesa
-{
-    internal interface IRepositorioDespesa
-    {
-    }
-}
+namespace EAgenda.Dominio.ModuloDespesa;
+public interface IRepositorioDespesa : IRepositorio<Despesa>;
