@@ -1,5 +1,6 @@
 ﻿using EAgenda.Dominio.ModuloCompromisso;
 using EAgenda.Dominio.ModuloContato;
+using EAgenda.WebApp.Models;
 
 namespace EAgenda.WebApp.Extensions;
 public static class CompromissoExtensions

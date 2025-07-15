@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EAgenda.Dominio.ModuloCategoria;
+using EAgenda.WebApp.Extensions;
+using EAgenda.WebApp.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EAgenda.WebApp.Controllers;
 
@@ -164,3 +167,4 @@ public class CategoriaController : Controller
 
         return View(detalhesVM);
     }
+}

@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EAgenda.Dominio.ModuloCategoria;
+using EAgenda.Dominio.ModuloDespesa;
+using EAgenda.WebApp.Models;
+using EAgenda.WebApp.Extensions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EAgenda.WebApp.Controllers;

@@ -1,4 +1,5 @@
 ﻿using EAgenda.Dominio.ModuloTarefa;
+using EAgenda.WebApp.Models;
 
 namespace EAgenda.WebApp.Extensions;
 

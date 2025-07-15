@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EAgenda.Dominio.ModuloTarefa;
+using EAgenda.WebApp.Models;
+using EAgenda.WebApp.Extensions;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EAgenda.WebApp.Controllers;
 

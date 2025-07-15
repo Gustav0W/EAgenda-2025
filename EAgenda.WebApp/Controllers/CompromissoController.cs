@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EAgenda.Dominio.ModuloContato;
+using EAgenda.Dominio.ModuloCompromisso;
+using EAgenda.WebApp.Models;
+using EAgenda.WebApp.Extensions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EAgenda.WebApp.Controllers;

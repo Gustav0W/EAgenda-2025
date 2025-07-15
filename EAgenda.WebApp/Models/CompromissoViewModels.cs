@@ -1,5 +1,6 @@
 ﻿using EAgenda.Dominio.ModuloCompromisso;
 using EAgenda.Dominio.ModuloContato;
+using EAgenda.WebApp.Extensions;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
