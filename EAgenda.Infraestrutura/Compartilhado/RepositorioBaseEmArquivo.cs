@@ -1,12 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EAgenda.Dominio.Compartilhado;
 
-namespace EAgenda.Infraestrutura.Compartilhado
+namespace EAgenda.Infraestrutura.Compartilhado;
+
+public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase<T>
 {
-    internal class RepositorioBaseEmArquivo
+    protected ContextoDados contexto;
+    protected List<T> registros = new List<T>();
+
+    protected RepositorioBaseEmArquivo(ContextoDados contexto)
     {
+        this.contexto = contexto;
+
+        registros = ObterRegistros();
+    }
+
+    protected abstract List<T> ObterRegistros();
+
+    public void CadastrarRegistro(T novoRegistro)
+    {
+        registros.Add(novoRegistro);
+
+        contexto.Salvar();
+    }
+
+    public bool EditarRegistro(Guid idRegistro, T registroEditado)
+    {
+        T? registroSelecionado = SelecionarRegistroPorId(idRegistro);
+
+        if (registroSelecionado is null)
+            return false;
+
+        registroSelecionado.AtualizarRegistro(registroSelecionado);
+
+        contexto.Salvar();
+
+        return true;
+    }
+
+    public bool ExcluirRegistro(Guid idRegistro)
+    {
+        T? registroSelecionado = SelecionarRegistroPorId(idRegistro);
+
+        if (registroSelecionado is null)
+            return false;
+
+        registros.Remove(registroSelecionado);
+
+        contexto.Salvar();
+
+        return true;
+    }
+
+    public List<T> SelecionarRegistros()
+    {
+        return registros;
+    }
+
+    public T? SelecionarRegistroPorId(Guid idRegistro)
+    {
+        return registros.Find((x) => x.Id.Equals(idRegistro));
     }
 }

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EAgenda.Dominio.ModuloCategoria;
+using EAgenda.Infraestrutura.Compartilhado;
 
-namespace EAgenda.Infraestrutura.ModuloCategoria
+namespace EAgenda.Infraestrutura.ModuloCategoria;
+
+public class RepositorioCategoriaEmArquivo : RepositorioBaseEmArquivo<Categoria>, IRepositorioCategoria
 {
-    internal class RepositorioCategoriaEmArquivo
+    public RepositorioCategoriaEmArquivo(ContextoDados contexto) : base(contexto)
     {
+    }
+    protected override List<Categoria> ObterRegistros()
+    {
+        return contexto.Categorias;
     }
 }
