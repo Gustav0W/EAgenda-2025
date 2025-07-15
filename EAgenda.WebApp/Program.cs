@@ -1,3 +1,21 @@
+using EAgenda.Dominio.ModuloCategoria;
+using EAgenda.Dominio.ModuloDespesa;
+using EAgenda.Dominio.ModuloTarefa;
+using EAgenda.Infraestrutura.Compartilhado;
+using EAgenda.Infraestrutura.Orm.Compartilhado;
+using EAgenda.Infraestrutura.Orm.ModuloContato;
+using EAgenda.Dominio.ModuloCompromisso;
+using EAgenda.Dominio.ModuloContato;
+using EAgenda.WebApp.ActionFilters;
+using EAgenda.WebApp.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using EAgenda.Infraestrutura.Orm.ModuloCompromisso;
+using EAgenda.Infraestrutura.Orm.ModuloCategoria;
+using EAgenda.Infraestrutura.Orm.ModuloDespesa;
+using EAgenda.Infraestrutura.Orm.ModuloTarefa;
+
 namespace EAgenda.WebApp
 {
     public class Program
@@ -6,29 +24,24 @@ namespace EAgenda.WebApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddScoped(_ => new ContextoDados(true));
+            builder.Services.AddScoped<IRepositorioContato, RepositorioContatoEmOrm>();
+            builder.Services.AddScoped<IRepositorioCompromisso, RepositorioCompromissoEmOrm>();
+            builder.Services.AddScoped<IRepositorioCategoria, RepositorioCategoriaEmOrm>();
+            builder.Services.AddScoped<IRepositorioDespesa, RepositorioDespesaEmOrm>();
+            builder.Services.AddScoped<IRepositorioTarefa, RepositorioTarefaEmOrm>();
+
+            builder.Services.AddEntityFrameworkConfig(builder.Configuration);
+            builder.Services.AddSerilogConfig(builder.Logging);
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
+            app.UseAntiforgery();
+            app.UseStaticFiles();
             app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.MapStaticAssets();
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
-                .WithStaticAssets();
+            app.MapDefaultControllerRoute();
 
             app.Run();
         }
