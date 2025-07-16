@@ -4,6 +4,7 @@ using EAgenda.Infraestrutura.Orm.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EAgenda.Infraestrutura.Orm.Migrations
 {
     [DbContext(typeof(EAgendaDbContext))]
-    partial class EAgendaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250716004708_Add_TBDespesa")]
+    partial class Add_TBDespesa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,30 +95,6 @@ namespace EAgenda.Infraestrutura.Orm.Migrations
 
                     b.ToTable("contatos");
                 });
-
-            modelBuilder.Entity("eAgenda.Dominio.ModuloDespesa.Despesa", b =>
-            {
-                b.Property<Guid>("Id")
-                    .HasColumnType("uniqueidentifier");
-
-                b.Property<DateTime>("DataOcorrencia")
-                    .HasColumnType("datetime2");
-
-                b.Property<string>("Descricao")
-                    .IsRequired()
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<string>("FormaPagamento")
-                    .IsRequired()
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<decimal>("Valor")
-                    .HasColumnType("decimal(18,2)");
-
-                b.HasKey("Id");
-
-                b.ToTable("Despesas");
-            });
 
             modelBuilder.Entity("EAgenda.Dominio.ModuloCompromisso.Compromisso", b =>
                 {
