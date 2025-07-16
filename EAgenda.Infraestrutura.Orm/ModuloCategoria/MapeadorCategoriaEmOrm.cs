@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EAgenda.Dominio.ModuloCategoria;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace EAgenda.Infraestrutura.Orm.ModuloCategoria
+namespace EAgenda.Infraestrutura.Orm.ModuloCategoria;
+
+public class MapeadorCategoriaEmOrm : IEntityTypeConfiguration<Categoria>
 {
-    internal class MapeadorCategoriaEmOrm
+    public void Configure(EntityTypeBuilder<Categoria> builder)
     {
+        builder.Property(x => x.Id)
+            .ValueGeneratedNever()
+            .IsRequired();
+
+        builder.Property(x => x.Titulo)
+            .IsRequired();
+
+        builder.HasMany(x => x.Despesas)
+            .WithMany(d => d.Categorias);
     }
 }

@@ -14,8 +14,8 @@ public class EAgendaDbContext : DbContext
     public DbSet<Compromisso> compromissos { get; set; }
     public DbSet<Categoria> categorias {  get; set; }
     public DbSet<Despesa> despesas { get; set; }
-    public DbSet<ItemTarefa> itensTarefa { get; set; }
-    public DbSet<Tarefa> tarefas { get; set; }
+    public DbSet<ItemTarefa> ItensTarefa { get; set; }
+    public DbSet<Tarefa> Tarefas { get; set; }
     public EAgendaDbContext(DbContextOptions options) : base(options) { }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
