@@ -43,7 +43,7 @@ public class RepositorioDespesaEmOrm
 
     public Despesa SelecionarRegistroPorId(Guid idRegistro)
     {
-        return contexto.despesa.FirstOrDefault(x => x.Id.Equals(idRegistro))!;
+        return contexto.despesas.FirstOrDefault(x => x.Id.Equals(idRegistro))!;
     }
 
     public List<Despesa> SelecionarRegistros()

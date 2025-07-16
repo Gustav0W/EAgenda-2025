@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EAgenda.Dominio.ModuloCompromisso;
+using EAgenda.Infraestrutura.Orm.Compartilhado;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32;
 
-namespace EAgenda.Infraestrutura.Orm.ModuloCompromisso
+namespace EAgenda.Infraestrutura.Orm.ModuloCompromisso;
+
+public class RepositorioCompromissoEmOrm : RepositorioBaseEmOrm<Compromisso>, IRepositorioCompromisso
 {
-    internal class RepositorioCompromissoEmOrm
+    public RepositorioCompromissoEmOrm(EAgendaDbContext contexto) : base(contexto)
     {
+
+    }
+
+    public override Compromisso? SelecionarRegistroPorId(Guid idRegistro)
+    {
+        return registros
+            .Include(x => x.Contato)
+            .FirstOrDefault(x => x.Id.Equals(idRegistro));
     }
 }
